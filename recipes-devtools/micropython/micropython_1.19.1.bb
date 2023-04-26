@@ -21,8 +21,7 @@ DEPENDS = "libffi"
 CPPFLAGS_append = " -Wno-error"
 
 EXTRA_OEMAKE = " \
-	-C ${S}/unix \
-	MICROPY_USE_READLINE=0 \
+	-C ${S}/port/unix \
 	V=1 \
 	DESTDIR="${D}" \
 	CC="${CC}" \
@@ -32,7 +31,6 @@ EXTRA_OEMAKE = " \
 "
 
 do_compile() {
-	oe_runmake axtls
 	oe_runmake micropython
 }
 
